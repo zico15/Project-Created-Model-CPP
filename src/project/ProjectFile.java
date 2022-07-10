@@ -28,7 +28,7 @@ public final class ProjectFile {
     {
         if ("Makefile".equals(fileName))
             setTxt(CreadMake.getText(fileName, files));
-        if (fileName.contains(".hpp"))
+        else if (fileName.contains(".hpp"))
             setTxt(CreadHPP.getText(fileName));
         else
             setTxt("");
