@@ -49,18 +49,18 @@ public class CreadMake {
     public static String getText(String folder, ArrayList<String> files)
     {
         String new_make;
-        String file_names = null;
+        String file_names = "";
         String temp;
         
         for (int i = 0; i < files.size(); i++)
         {
             temp = files.get(i);
-            if (temp.contains(".cpp"))
+            if (temp.contains(".cpp") && !temp.contains("*"))
             {
                 if (file_names == null)
                     file_names = temp;
                 else
-                    file_names += " \\ " + temp;
+                    file_names += " \\ \n" + temp;
             }
                 
         }

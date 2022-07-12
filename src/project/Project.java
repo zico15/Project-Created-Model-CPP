@@ -39,8 +39,6 @@ public class Project {
         lines = lines.substring(lines.indexOf(":") + 1, lines.indexOf("Forbidden")).trim();
         files.addAll(Arrays.asList( lines.split(",")));
         create_files_projects();
-        System.out.println("=================");
-        System.out.println("project: " + files.toString());
     }
     
     private  void create_files_projects()
@@ -48,21 +46,23 @@ public class Project {
         String fileName;
         if (folder == null)
             return;
+        for (int i = 0; i < files.size(); i++) {
+            fileName = files.get(i).trim();
+            if (fileName.contains(".{h"))
+            {
+                fileName = fileName.substring(0, fileName.indexOf("."));
+                fileName += ".hpp";
+                getProjectFiles().add(new ProjectFile(folder, fileName, files));
+                files.set(i, fileName);
+            }
+        }
         for(int i = 0; i < files.size(); i++) 
         {
             fileName = files.get(i).trim();
             if (!fileName.contains("*"))
             {
                 if ("Makefile".equals(fileName) || fileName.contains(".cpp"))   
-                    getProjectFiles().add(new ProjectFile(fileName, files));
-                else if (fileName.contains(".{h"))
-                {
-                    fileName = fileName.substring(0, fileName.indexOf("."));
-                    fileName += ".hpp";
-                    getProjectFiles().add(new ProjectFile(fileName, files));
-                    System.out.println("=================");
-                    System.out.println("hpp: " + fileName);
-                }
+                    getProjectFiles().add(new ProjectFile(folder, fileName, files));
             }
         }           
     }
