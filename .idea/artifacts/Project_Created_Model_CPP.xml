@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Project-Created-Model-CPP">
+    <output-path>$PROJECT_DIR$/out/artifacts/Project_Created_Model_CPP</output-path>
+    <root id="archive" name="Project-Created-Model-CPP.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>
